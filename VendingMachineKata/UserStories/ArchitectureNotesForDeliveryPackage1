@@ -1,0 +1,51 @@
+While the user stories describe the behavior of the system, and a little bit about the parts in as much as they are interacted with,
+this file describes a bit about the nature of the system, and resulting architecture.
+
+This software is fundamentally an event driven controller for a vending machine, that has inventory, mechanisms for paying, returning payment,
+selecting a product, retrieving the product, and getting change back either as a result of selecting a product that costs less than what
+the customer has put in, or as a result of the customer using a control to return their money and cancel.
+
+When money is entered, it must be categorized using detectors of weight, size, and ridging of coins, and scanning for marks or strips in
+bills. Not all machines can accept bills, and some can accept only certain bills. Categorization is interpreted in the context of the 
+appropriate currencies for the machine's locale. The value of the money entered is then understood by standardization. Unrecognized money
+is generally rejected by a vending machine - sent directly to the coin return if it is a coin, or spit back out if it is a bill. Money is
+inserted sequentially, and since there is a control to cancel and return coins, the machine must keep track of what has been entered until
+a product is selected and distributed, and change returned.
+
+Additionally, the machine must maintain an awareness of the coins that it has available to make change with, and warn the user if they must
+enter exact change. If the machine has a paper slot, but only returns coins when the return control is selected, then it will need to reject paper
+denominations that it does not have enough coins to cover.
+
+Once the product has been purchased and delivered, and any change returned, the money entered goes into a holding area within the machine that
+the vendor then accesses to receive the revenue. This does not necessarily have to be tracked in software, but might as well be. 
+
+A vending machine does not necessarily understand anything about the products that are actually in the distribution slots, it only knows
+that there are certain slots for distribution that can be triggered, and that a certain input selection code (either one button or a 
+combination of buttons, such as "A1") should trigger delivery from a certain distribution slot. Each distribution slot is stocked with
+a certain number of products when the machine is restocked.
+
+The vending machine also has a display of some sort, used to communicate with the customer.
+
+There are other features of some machines such as temperature management, and tilt control, that we are not architecting for this delivery.
+
+When the vendor restocks the machine, they also will typically also collect the money from the machine, make sure that the change slots are full,
+and collect the information they need to reconcile the remaining inventory with the remaining change and received money. A report would be a great
+benefit to the vendor, but is not yet identified as a use case for this delivery. 
+
+As a result of these considerations, the following necessary system use case is also identified for this distribution:
+
+Restock 
+--------
+
+_As a vendor_
+_I want to be able to restock the machine_
+_So that the machine can continue to be used to sell inventory_
+
+I may change the location of products each time I stock the machine, and I may or may not fill each slot.
+
+
+For this distribution, we are also making the following assumptions:
+  1. The money system to be used is US Dollars.
+  2. The machine does not use a dollar slot.
+  3. The machine keeps the coins entered in a holding area until the product selection has been made, coins returned via the 'return' control are
+     those coins that were inserted since the last product selection.

@@ -9,9 +9,11 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import com.leolore.kata.vend.IInventoryManager;
 import com.leolore.kata.vend.IVendingMachineController;
 import com.leolore.kata.vend.InitializationException;
 import com.leolore.kata.vend.controller.KataVendingMachine;
+import com.leolore.kata.vend.model.ProductSlot;
 
 public class KataVendingMachineControllerTest {
 	private static IVendingMachineController vmac = null;
@@ -61,10 +63,17 @@ public class KataVendingMachineControllerTest {
 	}
 	
 	@Test
+	public void testInitWithGoodConfigHasInventoryManager() {
+		assertNotNull("Init resulted in null inventory manager", vmac.getInventoryManager());
+	}
+	
+	@Test
 	public void testHandleProductSelectionEvent() {
 		/*
 		 * First, we need to actually stock the machine
 		 */
+		stockMachine();
+		
 		/*
 		 *  Here, we would need to create the event, add it to the controller's event queue, wait 
 		 *  for the event to be processed, then do our assertions. This is assuming that the queue processing
@@ -74,6 +83,20 @@ public class KataVendingMachineControllerTest {
 		 *  For the Kata, I am simply going to bypass the whole event queue thing and call the actual handler directly.
 		 */
 		fail("Not yet implemented!");
+	}
+	
+	
+	/**************
+	 * helpers
+	 */
+	private void stockMachine() {
+		IInventoryManager inman = vmac.getInventoryManager();
+		
+		HashMap<ProductSlot, Integer> i = new HashMap<ProductSlot, Integer>();
+		i.put(new ProductSlot("A", "Cola", 1.00d), 8);
+		i.put(new ProductSlot("B", "Chips", 0.50d), 7);
+		i.put(new ProductSlot("C", "Candy", 0.65d), 5);
+		inman.reStock(i);
 	}
 
 }

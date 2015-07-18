@@ -22,4 +22,18 @@ public interface IVendingMachineController {
    * Sets the machine back to initialized state as configured
    */
   public void reset();
+  
+  /**
+   * Retrieves the inventory manager for this machine.
+   * @return
+   */
+  public IInventoryManager getInventoryManager();
+
+  /**
+   * Called after the event is dequeued and interpreted, this method does the actual work when a product selection key or button has been pressed.
+   * @param selectionCode
+   * @throws ProductNotDeliveredException
+   */
+  public void handleProductSelection(String selectionCode) throws ProductNotDeliveredException;
+	
 }

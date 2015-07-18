@@ -1,4 +1,4 @@
-package com.leolore.kata.vend.controller.test;
+package com.leolore.kata.vend.test;
 
 import static org.junit.Assert.*;
 
@@ -71,6 +71,12 @@ public class KataInventoryManagerTest extends KataInventoryManager {
 		assertEquals("ProductRetrieved for slot A is not slotted for the Cola dispensing channel", "Cola", p.getProductDispensingCode());
 	}
 
+	@Test
+	public void testNumberRemainingWithCandySelectionCodeReturns3() {
+		int cnt = imgr.numberRemaining("C");
+		assertEquals("Did not get 3 as the number of items in the Candy slot", Integer.valueOf(3), Integer.valueOf(cnt));
+	}
+	
 	@Test
 	public void testReStock() {
 		HashMap<ProductSlot, Integer> i = new HashMap<ProductSlot, Integer>();

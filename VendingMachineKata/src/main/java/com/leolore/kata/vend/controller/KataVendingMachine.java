@@ -54,8 +54,21 @@ public class KataVendingMachine implements IVendingMachineController {
 	@Override
 	public void handleProductSelection(String selectionCode) throws ProductNotDeliveredException {
 		// get product from inventory manager
+		ProductSlot s = inman.getProductForSelectionCode(selectionCode);
+		if(null == s) {
+			throw new ProductNotDeliveredException("Product with selection code " + selectionCode + " not found");
+		}
 		// get destination code from product
+		String sDeliveryCode = s.getProductDispensingCode();
+		
 		// call delivery method
-		// update display
+		dispenseProduct(sDeliveryCode);
+		
+		// update display TODO: not yet implemented
+	}
+	
+	private void dispenseProduct(String whichProduct) {
+		// this is where the code to run the dispensing machinery goes
+		System.out.println("Dispensing from channel: " + whichProduct);
 	}
 }

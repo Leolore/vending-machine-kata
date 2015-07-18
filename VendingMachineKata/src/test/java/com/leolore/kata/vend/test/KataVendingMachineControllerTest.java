@@ -12,6 +12,7 @@ import org.junit.Test;
 import com.leolore.kata.vend.IInventoryManager;
 import com.leolore.kata.vend.IVendingMachineController;
 import com.leolore.kata.vend.InitializationException;
+import com.leolore.kata.vend.ProductNotDeliveredException;
 import com.leolore.kata.vend.controller.KataVendingMachine;
 import com.leolore.kata.vend.model.ProductSlot;
 
@@ -68,7 +69,7 @@ public class KataVendingMachineControllerTest {
 	}
 	
 	@Test
-	public void testHandleProductSelectionEvent() {
+	public void testHandleProductSelectionEventWithValidProductDoesNotCauseException() {
 		/*
 		 * First, we need to actually stock the machine
 		 */
@@ -81,6 +82,39 @@ public class KataVendingMachineControllerTest {
 		 *  processed other than the effects of the functionality that we are actually testing.
 		 *  
 		 *  For the Kata, I am simply going to bypass the whole event queue thing and call the actual handler directly.
+		 */
+		boolean gotException = false;
+		String exceptionMessage = null;
+		try {
+			vmac.handleProductSelection("A");
+		}
+		catch (ProductNotDeliveredException pnde) {
+			gotException = true;
+			exceptionMessage = pnde.getMessage();
+		}
+		assertFalse("Got exception from product delivery: " + exceptionMessage, gotException);
+	}
+	
+	@Test
+	public void testHandleProductSelectionEventWithValidProductDecrementsInventoryCount() {
+		/*
+		 * Although we are not implementing this yet, we want to keep track of the fact that it is part of the end functionality that is not done.
+		 */
+		fail("Not yet implemented!");
+	}
+	
+	@Test
+	public void testHandleProductSelectionEventWithValidProductClearsHeldMoney() {
+		/*
+		 * Although we are not implementing this yet, we want to keep track of the fact that it is part of the end functionality that is not done.
+		 */
+		fail("Not yet implemented!");
+	}
+	
+	@Test
+	public void testHandleProductSelectionEventWithValidProductReturnsCorrectChange() {
+		/*
+		 * Although we are not implementing this yet, we want to keep track of the fact that it is part of the end functionality that is not done.
 		 */
 		fail("Not yet implemented!");
 	}

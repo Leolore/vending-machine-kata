@@ -73,6 +73,7 @@ public class KataVendingMachineControllerTest {
 		 *  
 		 *  For the Kata, I am simply going to bypass the whole event queue thing and call the actual handler directly.
 		 */
+		fail("Not yet implemented!");
 	}
 
 }

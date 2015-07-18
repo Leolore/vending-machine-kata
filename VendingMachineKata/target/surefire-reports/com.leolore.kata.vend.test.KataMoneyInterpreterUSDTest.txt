@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: com.leolore.kata.vend.test.KataMoneyInterpreterUSDTest
 -------------------------------------------------------------------------------
-Tests run: 5, Failures: 4, Errors: 0, Skipped: 0, Time elapsed: 0.02 sec <<< FAILURE!
-testInitWithNullConfigThrowsException(com.leolore.kata.vend.test.KataMoneyInterpreterUSDTest)  Time elapsed: 0.001 sec  <<< FAILURE!
+Tests run: 5, Failures: 4, Errors: 0, Skipped: 0, Time elapsed: 0.024 sec <<< FAILURE!
+testInitWithNullConfigThrowsException(com.leolore.kata.vend.test.KataMoneyInterpreterUSDTest)  Time elapsed: 0.004 sec  <<< FAILURE!
 java.lang.AssertionError: Did not get InitializationException with null configuration
 	at org.junit.Assert.fail(Assert.java:93)
 	at org.junit.Assert.assertTrue(Assert.java:43)

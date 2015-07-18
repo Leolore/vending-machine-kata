@@ -49,4 +49,15 @@ public class KataInventoryManager implements IInventoryManager {
 		return selectionToProduct.get(code);
 	}
 
+	@Override
+	public int numberRemaining(String selectionCode) {
+		if(null == selectionToProduct) {
+			return 0;
+		}
+		Integer numLeft = productCount.get(selectionCode);
+		if(null == numLeft) {
+			return 0;
+		}
+		return numLeft.intValue();
+	}
 }

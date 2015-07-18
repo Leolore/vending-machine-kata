@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: com.leolore.kata.vend.test.KataMoneyInterpreterUSDTest
 -------------------------------------------------------------------------------
-Tests run: 5, Failures: 4, Errors: 0, Skipped: 0, Time elapsed: 0.076 sec <<< FAILURE!
-testInitWithNullConfigThrowsException(com.leolore.kata.vend.test.KataMoneyInterpreterUSDTest)  Time elapsed: 0.006 sec  <<< FAILURE!
+Tests run: 5, Failures: 4, Errors: 0, Skipped: 0, Time elapsed: 0.02 sec <<< FAILURE!
+testInitWithNullConfigThrowsException(com.leolore.kata.vend.test.KataMoneyInterpreterUSDTest)  Time elapsed: 0.001 sec  <<< FAILURE!
 java.lang.AssertionError: Did not get InitializationException with null configuration
 	at org.junit.Assert.fail(Assert.java:93)
 	at org.junit.Assert.assertTrue(Assert.java:43)
@@ -38,7 +38,7 @@ java.lang.AssertionError: Did not get InitializationException with null configur
 	at org.apache.maven.surefire.booter.SurefireStarter.runSuitesInProcess(SurefireStarter.java:87)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:69)
 
-testGetProtoCoinNamed(com.leolore.kata.vend.test.KataMoneyInterpreterUSDTest)  Time elapsed: 0.002 sec  <<< FAILURE!
+testGetProtoCoinNamed(com.leolore.kata.vend.test.KataMoneyInterpreterUSDTest)  Time elapsed: 0.001 sec  <<< FAILURE!
 java.lang.AssertionError: Got null while looking for a dime
 	at org.junit.Assert.fail(Assert.java:93)
 	at org.junit.Assert.assertTrue(Assert.java:43)

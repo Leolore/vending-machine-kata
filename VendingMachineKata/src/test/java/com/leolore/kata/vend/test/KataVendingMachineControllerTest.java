@@ -59,5 +59,20 @@ public class KataVendingMachineControllerTest {
 		}
 		assertFalse("Initialization with good config threw exception", gotException);
 	}
+	
+	@Test
+	public void testHandleProductSelectionEvent() {
+		/*
+		 * First, we need to actually stock the machine
+		 */
+		/*
+		 *  Here, we would need to create the event, add it to the controller's event queue, wait 
+		 *  for the event to be processed, then do our assertions. This is assuming that the queue processing
+		 *  is happening in a separate thread, and that we have a way of knowing that the event has been
+		 *  processed other than the effects of the functionality that we are actually testing.
+		 *  
+		 *  For the Kata, I am simply going to bypass the whole event queue thing and call the actual handler directly.
+		 */
+	}
 
 }

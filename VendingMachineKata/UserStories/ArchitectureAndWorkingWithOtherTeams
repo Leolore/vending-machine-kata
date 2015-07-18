@@ -1,0 +1,14 @@
+At this time, I will simulate the occurrance of a project event, and describe how the architecture interacts with this.
+
+Especially with embedded projects, such as this vending machine, there are times when the hardware and the software are
+being developed to some degree at the same time. Because of this, it will become important to make available smaller
+sections of the controller software to test subsections of the hardware, and to show progress to investors.
+
+For this simulation, the project manager approaches the software team on behalf of one of the hardware teams, who is
+ready to test their product delivery system hardware.
+
+In its completed form, our software will need to accept money first, and then allow the product selection, make change,
+deliver the change and deliver the product. To enable this testing however, we will temporarily refocus on implementing
+the tie from the product selection controls/buttons to the product delivery mechanism. To accomplish this, we will
+need to implement the event receivers in the vending machine controller, the translation from selection controls to 
+delivery codes in the inventory manager, and the call to actually do the delivery from the vending machine controller.

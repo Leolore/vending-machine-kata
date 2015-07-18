@@ -2,3 +2,5 @@ classes
 build
 target/classes
 target/test-classes
+target/surefire/surefire*
+

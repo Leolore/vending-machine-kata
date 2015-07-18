@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite failures="1" time="0.064" errors="0" skipped="0" tests="2" name="com.leolore.kata.vend.test.KataVendingMachineControllerTest">
+<testsuite failures="1" time="0.012" errors="0" skipped="0" tests="2" name="com.leolore.kata.vend.test.KataVendingMachineControllerTest">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Installs\MyEclipse7\Common\binary\com.sun.java.jdk.win32.x86_64_1.6.0.013\jre\bin"/>
@@ -19,7 +19,7 @@
     <property name="basedir" value="H:\SchmidtHouse\GitHubRepos\vending-machine-kata\VendingMachineKata"/>
     <property name="java.endorsed.dirs" value="C:\Installs\MyEclipse7\Common\binary\com.sun.java.jdk.win32.x86_64_1.6.0.013\jre\lib\endorsed"/>
     <property name="os.arch" value="amd64"/>
-    <property name="surefire.real.class.path" value="H:\SchmidtHouse\GitHubRepos\vending-machine-kata\VendingMachineKata\target\surefire\surefirebooter7684832484027895905.jar"/>
+    <property name="surefire.real.class.path" value="H:\SchmidtHouse\GitHubRepos\vending-machine-kata\VendingMachineKata\target\surefire\surefirebooter4698888185230842171.jar"/>
     <property name="java.io.tmpdir" value="C:\Users\Leolore\AppData\Local\Temp\"/>
     <property name="line.separator" value="
 "/>
@@ -59,7 +59,7 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase time="0.006" classname="com.leolore.kata.vend.test.KataVendingMachineControllerTest" name="testInitWithNullConfigThrowsException">
+  <testcase time="0.002" classname="com.leolore.kata.vend.test.KataVendingMachineControllerTest" name="testInitWithNullConfigThrowsException">
     <failure message="Initialization with null config did not throw exception" type="java.lang.AssertionError">java.lang.AssertionError: Initialization with null config did not throw exception
 	at org.junit.Assert.fail(Assert.java:93)
 	at org.junit.Assert.assertTrue(Assert.java:43)
@@ -96,10 +96,7 @@
 	at org.apache.maven.surefire.booter.SurefireStarter.runSuitesInProcess(SurefireStarter.java:87)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:69)
 </failure>
-    <system-out>@HL
-@HL-------------------------------------------------------
-@HL T E S T S
-@HL-------------------------------------------------------
+    <system-out>@SLTests run: 5, Failures: 4, Errors: 0, Skipped: 0, Time elapsed: 0.075 sec &lt;&lt;&lt; FAILURE!
 @SLRunning com.leolore.kata.vend.test.KataVendingMachineControllerTest
 </system-out>
   </testcase>

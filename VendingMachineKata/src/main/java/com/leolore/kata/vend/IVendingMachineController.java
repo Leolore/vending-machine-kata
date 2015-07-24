@@ -2,6 +2,8 @@ package com.leolore.kata.vend;
 
 import java.util.Map;
 
+import com.leolore.kata.vend.model.DisplayContents;
+
 /**
  * This software is fundamentally an event driven controller for a vending machine, that has inventory, mechanisms for paying, returning payment,
  * selecting a product, retrieving the product, and getting change back either as a result of selecting a product that costs less than what
@@ -29,6 +31,12 @@ public interface IVendingMachineController {
    */
   public IInventoryManager getInventoryManager();
 
+  /**
+   * Called when the machine is updating the display. This is basically a state machine of the display
+   * @return String the content to be displayed
+   */
+  public DisplayContents getDisplayContent();
+  
   /**
    * Called after the event is dequeued and interpreted, this method does the actual work when a product selection key or button has been pressed.
    * @param selectionCode

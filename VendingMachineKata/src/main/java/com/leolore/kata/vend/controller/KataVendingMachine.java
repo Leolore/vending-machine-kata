@@ -6,12 +6,15 @@ import com.leolore.kata.vend.IInventoryManager;
 import com.leolore.kata.vend.IVendingMachineController;
 import com.leolore.kata.vend.InitializationException;
 import com.leolore.kata.vend.ProductNotDeliveredException;
+import com.leolore.kata.vend.model.DisplayContents;
 import com.leolore.kata.vend.model.ProductSlot;
 
 public class KataVendingMachine implements IVendingMachineController {
-	Map<String, String> config = null;
-	IInventoryManager inman = null;
-
+	private Map<String, String> config = null;
+	private IInventoryManager inman = null;
+	
+	private DisplayContents display = DisplayContents.INSERT;
+	
 	@Override
 	public void init(Map<String, String> cfg) throws InitializationException {
 		if(null == cfg) {
@@ -70,5 +73,10 @@ public class KataVendingMachine implements IVendingMachineController {
 	private void dispenseProduct(String whichProduct) {
 		// this is where the code to run the dispensing machinery goes
 		System.out.println("Dispensing from channel: " + whichProduct);
+	}
+	
+	@Override
+	public DisplayContents getDisplayContent() {
+		return display;
 	}
 }

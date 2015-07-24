@@ -14,6 +14,7 @@ import com.leolore.kata.vend.IVendingMachineController;
 import com.leolore.kata.vend.InitializationException;
 import com.leolore.kata.vend.ProductNotDeliveredException;
 import com.leolore.kata.vend.controller.KataVendingMachine;
+import com.leolore.kata.vend.model.DisplayContents;
 import com.leolore.kata.vend.model.ProductSlot;
 
 public class KataVendingMachineControllerTest {
@@ -37,6 +38,10 @@ public class KataVendingMachineControllerTest {
 		vmac.reset();
 	}
 
+	//************************
+	// initialization tests
+	//
+	
 	@Test
 	public void testInitWithNullConfigThrowsException() {
 		boolean gotException = false;
@@ -68,6 +73,131 @@ public class KataVendingMachineControllerTest {
 		assertNotNull("Init resulted in null inventory manager", vmac.getInventoryManager());
 	}
 	
+
+	//******************************
+	// Functional / Use case tests
+	//
+/*
+Accept Coins.
+------------
+  
+_As a vendor_  
+_I want a vending machine that accepts coins_  
+_So that I can collect money from the customer_  
+
+The vending machine will accept valid coins (nickels, dimes, and quarters) and reject invalid ones (pennies).  When a
+valid coin is inserted the amount of the coin will be added to the current amount and the display will be updated.
+When there are no coins inserted, the machine displays INSERT COIN.  Rejected coins are placed in the coin return.
+
+NOTE: The temptation here will be to create Coin objects that know their value.  However, this is not how a real
+  vending machine works.  Instead, it identifies coins by their weight and size and then assigned a value to what
+  was inserted.  You will need to do something similar.  This can be simulated using strings, constants, enums,
+  symbols, or something of that nature.
+  
+Requires coin slot, coin return, money interpreter, display, held money bucket
+*/
+	@Test
+	public void testAcceptCoins() {
+		fail("Not yet implemented");
+	}
+	
+/*
+Select Product
+--------------
+
+_As a vendor_  
+_I want customers to select products_  
+_So that I can give them an incentive to put money in the machine_  
+
+There are three products: cola for $1.00, chips for $0.50, and candy for $0.65.  When the respective button is pressed
+and enough money has been inserted, the product is dispensed and the machine displays THANK YOU.  If the display is
+checked again, it will display INSERT COINS and the current amount will be set to $0.00.  If there is not enough money
+inserted then the machine displays PRICE and the price of the item and subsequent checks of the display will display
+either INSERT COINS or the current amount as appropriate.
+
+Requires product select buttons, coin slot, coin return, display, inventory manager
+*/
+	@Test
+	public void testSelectProduct() {
+		fail("Not yet implemented");
+	}
+	
+/*
+Make Change
+-----------
+
+_As a vendor_  
+_I want customers to receive correct change_  
+_So that they will use the vending machine again_  
+
+When a product is selected that costs less than the amount of money in the machine, then the remaining amount is placed
+in the coin return.
+
+Requires coin slot, product select buttons, inventory manager, coin return
+*/
+	@Test
+	public void testMakeChange() {
+		fail("Not yet implemented");
+	}
+	
+/*
+Return Coins
+------------
+
+_As a customer_  
+_I want to have my money returned_  
+_So that I can change my mind about buying stuff from the vending machine_  
+
+When the return coins is selected, the money the customer has placed in the machine is returned and the display shows
+INSERT COIN.
+
+Requires coin slot, coin return, display
+*/
+	@Test
+	public void testReturnCoins() {
+		fail("Not yet implemented");
+	}
+
+/*
+Sold Out
+--------
+
+_As a customer_  
+_I want to be told when the item I have selected is not available_  
+_So that I can select another item_  
+
+When the item selected by the customer is out of stock, the machine displays SOLD OUT.  If the display is checked again,
+it will display the amount of money remaining in the machine or INSERT COIN if there is no money in the machine.
+
+Requires product select buttons, inventory manager, display
+*/
+	@Test
+	public void testSoldOut() {
+		fail("Not yet implemented");
+	}
+	
+/*
+Exact Change Only
+-----------------
+
+_As a customer_  
+_I want to be told when exact change is required_  
+_So that I can determine if I can buy something with the money I have before inserting it_  
+
+When the machine is not able to make change with the money in the machine for any of the items that it sells, it will
+display EXACT CHANGE ONLY instead of INSERT COINS.
+
+Requires change manager, display
+*/
+	@Test
+	public void testExactChangeOnly() {
+		fail("Not yet implemented");
+	}
+
+	
+	//******************************
+	// Machinery tests
+	//
 	@Test
 	public void testHandleProductSelectionEventWithValidProductDoesNotCauseException() {
 		/*
@@ -119,10 +249,15 @@ public class KataVendingMachineControllerTest {
 		fail("Not yet implemented!");
 	}
 	
+	@Test
+	public void testGetDefaultDisplayValueIsInsertCoins() {
+		assertEquals(vmac.getDisplayContent(), DisplayContents.INSERT);
+	}
 	
-	/**************
-	 * helpers
-	 */
+	//*************
+	// helpers
+	//
+	
 	private void stockMachine() {
 		IInventoryManager inman = vmac.getInventoryManager();
 		

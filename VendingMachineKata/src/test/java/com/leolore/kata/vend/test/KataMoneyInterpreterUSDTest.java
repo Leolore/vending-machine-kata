@@ -6,7 +6,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
 import com.leolore.kata.vend.IMoneyInterpreter;
@@ -23,7 +22,7 @@ public class KataMoneyInterpreterUSDTest {
 	@Before
 	public void setUp() throws Exception {
 		config = new HashMap<String, String>();
-		config.put("machineHasPaperSlot", "Yes");
+		config.put("machineHasPaperSlot", "No");
 		det.init(config);
 	}
 
@@ -62,26 +61,27 @@ public class KataMoneyInterpreterUSDTest {
 
 	@Test
 	public void testGetValueOf() {
-		Coin c = new Coin(2.75d, 6.00d, false, null);
-		assertEquals("Failed to get a penny for penny parameters", Double.valueOf(0.01d), Double.valueOf(det.getValueOf(c)));
+		Coin c = new Coin(5.1d, 7.005d, false, null);
+		assertEquals("Failed to get a nickel for nickel parameters", Double.valueOf(0.05d), Double.valueOf(det.getValueOf(c)));
 	}
 
 	@Test
 	public void testGetLargestCoinValuedLessOrEqual() {
 		ProtoCoin p = det.getLargestCoinValuedLessOrEqual(2.02d);
 		assertNotNull("Failed to get any coin worth less than $2.02", p);
-		assertEquals("Failed to get a dollar", Double.valueOf(1.00d), Double.valueOf(p.getValue()));
-		p = det.getLargestCoinValuedLessOrEqual(0.99d);
-		assertEquals("Failed to get a half dollar", "Half Dollar", p.getName());
-		p = det.getLargestCoinValuedLessOrEqual(0.49d);
+		// Only doing Quarters dimes and nickels according to the requirements
+//		assertEquals("Failed to get a dollar", Double.valueOf(1.00d), Double.valueOf(p.getValue()));
+//		p = det.getLargestCoinValuedLessOrEqual(0.99d);
+//		assertEquals("Failed to get a half dollar", "Half Dollar", p.getName());
+//		p = det.getLargestCoinValuedLessOrEqual(0.49d);
 		assertEquals("Failed to get a quarter", "Quarter", p.getName());
 		p = det.getLargestCoinValuedLessOrEqual(0.24d);
-		assertEquals("Failed to get a quarter", "Dime", p.getName());
+		assertEquals("Failed to get a dime", "Dime", p.getName());
 		p = det.getLargestCoinValuedLessOrEqual(0.07d);
-		assertEquals("Failed to get a quarter", "Nickel", p.getName());
+		assertEquals("Failed to get a nickel", "Nickel", p.getName());
 		p = det.getLargestCoinValuedLessOrEqual(0.03d);
-		assertEquals("Failed to get a quarter", "Penny", p.getName());
-		p = det.getLargestCoinValuedLessOrEqual(0.00d);
+//		assertEquals("Failed to get a penny", "Penny", p.getName());
+//		p = det.getLargestCoinValuedLessOrEqual(0.00d);
 		assertNull("Got a coin when not expected", p);
 	}
 

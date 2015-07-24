@@ -8,6 +8,13 @@ public class ProtoCoin extends CashObject {
   private double minRadiusInMillimeters = -1.0d;
   private double maxRadiusInMillimeters = -0.5d;
   
+
+  // Yes, there are other coins. These are the only ones mentioned in the requirements
+  public static final ProtoCoin NICKEL = new ProtoCoin("Nickel", 0.05d, 5.0d, 5.5d, 7.0d, 7.01d, false, null); 
+  public static final ProtoCoin DIME = new ProtoCoin("Dime", 0.10d, 1.0d, 2.0d, 5.0d, 5.1d, true, null); 
+  public static final ProtoCoin QUARTER = new ProtoCoin("Quarter", 0.25d, 10.0d, 11.0d, 14d, 14.01d, true, null);
+
+  
 	public ProtoCoin(String n, double v, double mnw, double mxw, double mnr, double mxr, boolean r,
 			String s) {
 		super(r,s);

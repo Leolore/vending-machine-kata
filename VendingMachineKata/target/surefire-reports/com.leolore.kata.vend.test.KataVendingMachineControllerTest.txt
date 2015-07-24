@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: com.leolore.kata.vend.test.KataVendingMachineControllerTest
 -------------------------------------------------------------------------------
-Tests run: 14, Failures: 9, Errors: 0, Skipped: 0, Time elapsed: 0.046 sec <<< FAILURE!
-testAcceptCoins(com.leolore.kata.vend.test.KataVendingMachineControllerTest)  Time elapsed: 0.001 sec  <<< FAILURE!
+Tests run: 14, Failures: 9, Errors: 0, Skipped: 0, Time elapsed: 0.041 sec <<< FAILURE!
+testAcceptCoins(com.leolore.kata.vend.test.KataVendingMachineControllerTest)  Time elapsed: 0.004 sec  <<< FAILURE!
 java.lang.AssertionError: Not yet implemented
 	at org.junit.Assert.fail(Assert.java:93)
 	at com.leolore.kata.vend.test.KataVendingMachineControllerTest.testAcceptCoins(KataVendingMachineControllerTest.java:101)
@@ -38,7 +38,7 @@ java.lang.AssertionError: Not yet implemented
 	at org.apache.maven.surefire.booter.SurefireStarter.runSuitesInProcess(SurefireStarter.java:87)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:69)
 
-testSelectProduct(com.leolore.kata.vend.test.KataVendingMachineControllerTest)  Time elapsed: 0 sec  <<< FAILURE!
+testSelectProduct(com.leolore.kata.vend.test.KataVendingMachineControllerTest)  Time elapsed: 0.001 sec  <<< FAILURE!
 java.lang.AssertionError: Not yet implemented
 	at org.junit.Assert.fail(Assert.java:93)
 	at com.leolore.kata.vend.test.KataVendingMachineControllerTest.testSelectProduct(KataVendingMachineControllerTest.java:122)
@@ -74,7 +74,7 @@ java.lang.AssertionError: Not yet implemented
 	at org.apache.maven.surefire.booter.SurefireStarter.runSuitesInProcess(SurefireStarter.java:87)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:69)
 
-testMakeChange(com.leolore.kata.vend.test.KataVendingMachineControllerTest)  Time elapsed: 0.001 sec  <<< FAILURE!
+testMakeChange(com.leolore.kata.vend.test.KataVendingMachineControllerTest)  Time elapsed: 0 sec  <<< FAILURE!
 java.lang.AssertionError: Not yet implemented
 	at org.junit.Assert.fail(Assert.java:93)
 	at com.leolore.kata.vend.test.KataVendingMachineControllerTest.testMakeChange(KataVendingMachineControllerTest.java:140)

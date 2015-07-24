@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite failures="9" time="0.038" errors="0" skipped="0" tests="14" name="com.leolore.kata.vend.test.KataVendingMachineControllerTest">
+<testsuite failures="9" time="0.057" errors="0" skipped="0" tests="14" name="com.leolore.kata.vend.test.KataVendingMachineControllerTest">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Installs\MyEclipse7\Common\binary\com.sun.java.jdk.win32.x86_64_1.6.0.013\jre\bin"/>
@@ -19,7 +19,7 @@
     <property name="basedir" value="H:\SchmidtHouse\GitHubRepos\vending-machine-kata\VendingMachineKata"/>
     <property name="java.endorsed.dirs" value="C:\Installs\MyEclipse7\Common\binary\com.sun.java.jdk.win32.x86_64_1.6.0.013\jre\lib\endorsed"/>
     <property name="os.arch" value="amd64"/>
-    <property name="surefire.real.class.path" value="H:\SchmidtHouse\GitHubRepos\vending-machine-kata\VendingMachineKata\target\surefire\surefirebooter8337819026562619678.jar"/>
+    <property name="surefire.real.class.path" value="H:\SchmidtHouse\GitHubRepos\vending-machine-kata\VendingMachineKata\target\surefire\surefirebooter2711084585589771016.jar"/>
     <property name="java.io.tmpdir" value="C:\Users\Leolore\AppData\Local\Temp\"/>
     <property name="line.separator" value="
 "/>
@@ -59,10 +59,10 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase time="0" classname="com.leolore.kata.vend.test.KataVendingMachineControllerTest" name="testInitWithNullConfigThrowsException"/>
+  <testcase time="0.001" classname="com.leolore.kata.vend.test.KataVendingMachineControllerTest" name="testInitWithNullConfigThrowsException"/>
   <testcase time="0" classname="com.leolore.kata.vend.test.KataVendingMachineControllerTest" name="testInitWithGoodConfigDoesNotThrowException"/>
   <testcase time="0" classname="com.leolore.kata.vend.test.KataVendingMachineControllerTest" name="testInitWithGoodConfigHasInventoryManager"/>
-  <testcase time="0.001" classname="com.leolore.kata.vend.test.KataVendingMachineControllerTest" name="testAcceptCoins">
+  <testcase time="0.005" classname="com.leolore.kata.vend.test.KataVendingMachineControllerTest" name="testAcceptCoins">
     <failure message="Not yet implemented" type="java.lang.AssertionError">java.lang.AssertionError: Not yet implemented
 	at org.junit.Assert.fail(Assert.java:93)
 	at com.leolore.kata.vend.test.KataVendingMachineControllerTest.testAcceptCoins(KataVendingMachineControllerTest.java:101)
@@ -99,7 +99,7 @@
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:69)
 </failure>
   </testcase>
-  <testcase time="0.001" classname="com.leolore.kata.vend.test.KataVendingMachineControllerTest" name="testSelectProduct">
+  <testcase time="0.002" classname="com.leolore.kata.vend.test.KataVendingMachineControllerTest" name="testSelectProduct">
     <failure message="Not yet implemented" type="java.lang.AssertionError">java.lang.AssertionError: Not yet implemented
 	at org.junit.Assert.fail(Assert.java:93)
 	at com.leolore.kata.vend.test.KataVendingMachineControllerTest.testSelectProduct(KataVendingMachineControllerTest.java:122)
@@ -210,7 +210,7 @@
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:69)
 </failure>
   </testcase>
-  <testcase time="0.001" classname="com.leolore.kata.vend.test.KataVendingMachineControllerTest" name="testSoldOut">
+  <testcase time="0.002" classname="com.leolore.kata.vend.test.KataVendingMachineControllerTest" name="testSoldOut">
     <failure message="Not yet implemented" type="java.lang.AssertionError">java.lang.AssertionError: Not yet implemented
 	at org.junit.Assert.fail(Assert.java:93)
 	at com.leolore.kata.vend.test.KataVendingMachineControllerTest.testSoldOut(KataVendingMachineControllerTest.java:176)
@@ -284,7 +284,7 @@
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:69)
 </failure>
   </testcase>
-  <testcase time="0" classname="com.leolore.kata.vend.test.KataVendingMachineControllerTest" name="testHandleProductSelectionEventWithValidProductDoesNotCauseException"/>
+  <testcase time="0.001" classname="com.leolore.kata.vend.test.KataVendingMachineControllerTest" name="testHandleProductSelectionEventWithValidProductDoesNotCauseException"/>
   <testcase time="0.001" classname="com.leolore.kata.vend.test.KataVendingMachineControllerTest" name="testHandleProductSelectionEventWithValidProductDecrementsInventoryCount">
     <failure message="Not yet implemented!" type="java.lang.AssertionError">java.lang.AssertionError: Not yet implemented!
 	at org.junit.Assert.fail(Assert.java:93)
@@ -359,7 +359,7 @@
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:69)
 </failure>
   </testcase>
-  <testcase time="0.001" classname="com.leolore.kata.vend.test.KataVendingMachineControllerTest" name="testHandleProductSelectionEventWithValidProductReturnsCorrectChange">
+  <testcase time="0.002" classname="com.leolore.kata.vend.test.KataVendingMachineControllerTest" name="testHandleProductSelectionEventWithValidProductReturnsCorrectChange">
     <failure message="Not yet implemented!" type="java.lang.AssertionError">java.lang.AssertionError: Not yet implemented!
 	at org.junit.Assert.fail(Assert.java:93)
 	at com.leolore.kata.vend.test.KataVendingMachineControllerTest.testHandleProductSelectionEventWithValidProductReturnsCorrectChange(KataVendingMachineControllerTest.java:249)
@@ -396,5 +396,5 @@
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:69)
 </failure>
   </testcase>
-  <testcase time="0.001" classname="com.leolore.kata.vend.test.KataVendingMachineControllerTest" name="testGetDefaultDisplayValueIsInsertCoins"/>
+  <testcase time="0" classname="com.leolore.kata.vend.test.KataVendingMachineControllerTest" name="testGetDefaultDisplayValueIsInsertCoins"/>
 </testsuite>

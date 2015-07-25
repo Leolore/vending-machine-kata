@@ -26,7 +26,7 @@ public class KataVendingMachine implements IVendingMachineController {
 	
 	private double heldMoney = 0.0d;
 	private List<Coin> heldCoins = new ArrayList<Coin>();
-	private List<Coin> coinsInReturn = new ArrayList<Coin>();
+	private List<CashObject> coinsInReturn = new ArrayList<CashObject>();
 	
 	@Override
 	public void init(Map<String, String> cfg) throws InitializationException {
@@ -136,11 +136,6 @@ public class KataVendingMachine implements IVendingMachineController {
 		}
 	}
 	
-	private void dispenseProduct(String whichProduct) {
-		// this is where the code to run the dispensing machinery goes
-		System.out.println("Dispensing from channel: " + whichProduct);
-	}
-	
 	@Override
 	public String getDisplayContent() {
 		String resp = null;
@@ -157,4 +152,19 @@ public class KataVendingMachine implements IVendingMachineController {
 		}
 		return resp;
 	}
+	
+	@Override
+	public List<CashObject> getCoinsInReturn() {
+		return coinsInReturn;
+	}	
+
+	/**
+	 * Dispense an actual product.
+	 * @param whichProduct
+	 */
+	private void dispenseProduct(String whichProduct) {
+		// TODO: this is where the code to run the dispensing machinery goes
+		System.out.println("Dispensing from channel: " + whichProduct);
+	}
+	
 }

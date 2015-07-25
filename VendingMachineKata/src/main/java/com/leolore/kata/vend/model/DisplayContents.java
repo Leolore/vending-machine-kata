@@ -1,10 +1,10 @@
 package com.leolore.kata.vend.model;
 
 public enum DisplayContents {
-	INSERT("Insert Coins"),
-	EXACT("Exact Change"),
-	SOLDOUT("Sold Out"),
-	THANKS("Thank You"),
+	INSERT("INSERT COIN"),
+	EXACT("EXACT CHANGE"),
+	SOLDOUT("SOLD OUT"),
+	THANKS("THANK YOU"),
 	MONEY("Money");
 	
 	private String content = null;

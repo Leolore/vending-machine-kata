@@ -3,6 +3,8 @@ package com.leolore.kata.vend.test;
 import static org.junit.Assert.*;
 
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 
 import org.junit.Before;
@@ -14,6 +16,7 @@ import com.leolore.kata.vend.IVendingMachineController;
 import com.leolore.kata.vend.InitializationException;
 import com.leolore.kata.vend.ProductNotDeliveredException;
 import com.leolore.kata.vend.controller.KataVendingMachine;
+import com.leolore.kata.vend.model.CashObject;
 import com.leolore.kata.vend.model.Coin;
 import com.leolore.kata.vend.model.DisplayContents;
 import com.leolore.kata.vend.model.ProductSlot;
@@ -100,7 +103,37 @@ Requires coin slot, coin return, money interpreter, display, held money bucket
 */
 	@Test
 	public void testAcceptCoins() {
-		fail("Not yet implemented");
+		// Test that machine without coins displays INSERT COIN
+		assertEquals("Does not display INSERT COIN prior to coins being inserted", "INSERT COIN", vmac.getDisplayContent());
+		
+		// Test that machine accepts dime, and that display is updated
+		vmac.handleCoinInserted(generateCoin("Dime"));
+		assertEquals("Did not increment money held by 10 cents for dime", "$0.10", vmac.getDisplayContent());
+		
+		// Test that the machine acepts quarter
+		vmac.handleCoinInserted(generateCoin("Quarter"));
+		assertEquals("Did not increment money held by 25 cents for quarter", "$0.35", vmac.getDisplayContent());
+		
+		// Test that the machine accepts nickel
+		vmac.handleCoinInserted(generateCoin("Nickel"));
+		assertEquals("Did not increment money held by 5 cents for nickel", "$0.40", vmac.getDisplayContent());
+		
+		// Test that the machine rejects pennies
+		vmac.handleCoinInserted(generateCoin("Penny"));
+		assertEquals("Updated money held when penny inserted", "$0.40", vmac.getDisplayContent());
+		
+		// Test that the rejected coin is placed in the coin return
+		boolean pennyInReturn = false;
+		List<CashObject> lReturn = vmac.getCoinsInReturn();
+		for(CashObject cash : lReturn) {
+			if(cash instanceof Coin) {
+				Coin c = (Coin)cash;
+				if((c.getWeightInGrams() == 4.1d) && (c.getRadiusInMillimeters() == 6.002d) && (!c.hasRidges())) {
+					pennyInReturn = true;
+				}
+			}
+		}
+		assertTrue("Penny did not end up in the return", pennyInReturn);
 	}
 	
 /*
@@ -335,6 +368,17 @@ Requires change manager, display
 		vmac.handleCoinInserted(penny);
 		assertEquals(vmac.getDisplayContent(), DisplayContents.INSERT.toString());
 		// eventually need to assert that the coin return has the penny in it, when we have a way of getting coins from the return
+		List<CashObject> coins = vmac.getCoinsInReturn();
+		boolean hasPenny = false;
+		for(CashObject cash : coins) {
+			if(cash instanceof Coin) {
+				Coin c = (Coin)cash;
+				if((c.getWeightInGrams() == 4.1d) && (c.getRadiusInMillimeters() == 6.002d) && (!c.hasRidges())) {
+					hasPenny = true;
+				}
+			}
+		}
+		assertTrue("Coin return did not have penny",hasPenny);
 	}
 	
 	@Test
@@ -379,4 +423,19 @@ Requires change manager, display
 		inman.reStock(i);
 	}
 
+	private double getSumValue(List<CashObject> coins) {
+		Iterator<CashObject> i = coins.iterator();
+		double val = 0.0d;
+		while(i.hasNext()) {
+			CashObject cash = i.next();
+			if(cash instanceof ProtoCoin) {
+				ProtoCoin p = (ProtoCoin)cash;
+				val += p.getValue();
+			}
+			else {
+				val += vmac.getMoneyInterpreter().getValueOf(cash);
+			}
+		}
+		return val;
+	}
 }

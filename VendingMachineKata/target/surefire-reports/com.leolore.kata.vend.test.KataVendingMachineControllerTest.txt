@@ -1,47 +1,11 @@
 -------------------------------------------------------------------------------
 Test set: com.leolore.kata.vend.test.KataVendingMachineControllerTest
 -------------------------------------------------------------------------------
-Tests run: 18, Failures: 8, Errors: 0, Skipped: 0, Time elapsed: 0.051 sec <<< FAILURE!
-testAcceptCoins(com.leolore.kata.vend.test.KataVendingMachineControllerTest)  Time elapsed: 0.004 sec  <<< FAILURE!
+Tests run: 18, Failures: 7, Errors: 0, Skipped: 0, Time elapsed: 0.049 sec <<< FAILURE!
+testSelectProduct(com.leolore.kata.vend.test.KataVendingMachineControllerTest)  Time elapsed: 0.005 sec  <<< FAILURE!
 java.lang.AssertionError: Not yet implemented
 	at org.junit.Assert.fail(Assert.java:93)
-	at com.leolore.kata.vend.test.KataVendingMachineControllerTest.testAcceptCoins(KataVendingMachineControllerTest.java:103)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
-	at java.lang.reflect.Method.invoke(Method.java:597)
-	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:45)
-	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:15)
-	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:42)
-	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:20)
-	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:28)
-	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:263)
-	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:68)
-	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:47)
-	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:231)
-	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:60)
-	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:229)
-	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:50)
-	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:222)
-	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:28)
-	at org.junit.runners.ParentRunner.run(ParentRunner.java:300)
-	at org.apache.maven.surefire.junit4.JUnit4TestSet.execute(JUnit4TestSet.java:35)
-	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:146)
-	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:97)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
-	at java.lang.reflect.Method.invoke(Method.java:597)
-	at org.apache.maven.surefire.booter.ProviderFactory$ClassLoaderProxy.invoke(ProviderFactory.java:103)
-	at $Proxy0.invoke(Unknown Source)
-	at org.apache.maven.surefire.booter.SurefireStarter.invokeProvider(SurefireStarter.java:145)
-	at org.apache.maven.surefire.booter.SurefireStarter.runSuitesInProcess(SurefireStarter.java:87)
-	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:69)
-
-testSelectProduct(com.leolore.kata.vend.test.KataVendingMachineControllerTest)  Time elapsed: 0.001 sec  <<< FAILURE!
-java.lang.AssertionError: Not yet implemented
-	at org.junit.Assert.fail(Assert.java:93)
-	at com.leolore.kata.vend.test.KataVendingMachineControllerTest.testSelectProduct(KataVendingMachineControllerTest.java:124)
+	at com.leolore.kata.vend.test.KataVendingMachineControllerTest.testSelectProduct(KataVendingMachineControllerTest.java:157)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
@@ -77,7 +41,7 @@ java.lang.AssertionError: Not yet implemented
 testMakeChange(com.leolore.kata.vend.test.KataVendingMachineControllerTest)  Time elapsed: 0.001 sec  <<< FAILURE!
 java.lang.AssertionError: Not yet implemented
 	at org.junit.Assert.fail(Assert.java:93)
-	at com.leolore.kata.vend.test.KataVendingMachineControllerTest.testMakeChange(KataVendingMachineControllerTest.java:142)
+	at com.leolore.kata.vend.test.KataVendingMachineControllerTest.testMakeChange(KataVendingMachineControllerTest.java:175)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
@@ -110,10 +74,10 @@ java.lang.AssertionError: Not yet implemented
 	at org.apache.maven.surefire.booter.SurefireStarter.runSuitesInProcess(SurefireStarter.java:87)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:69)
 
-testReturnCoins(com.leolore.kata.vend.test.KataVendingMachineControllerTest)  Time elapsed: 0 sec  <<< FAILURE!
+testReturnCoins(com.leolore.kata.vend.test.KataVendingMachineControllerTest)  Time elapsed: 0.001 sec  <<< FAILURE!
 java.lang.AssertionError: Not yet implemented
 	at org.junit.Assert.fail(Assert.java:93)
-	at com.leolore.kata.vend.test.KataVendingMachineControllerTest.testReturnCoins(KataVendingMachineControllerTest.java:160)
+	at com.leolore.kata.vend.test.KataVendingMachineControllerTest.testReturnCoins(KataVendingMachineControllerTest.java:193)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
@@ -149,7 +113,7 @@ java.lang.AssertionError: Not yet implemented
 testSoldOut(com.leolore.kata.vend.test.KataVendingMachineControllerTest)  Time elapsed: 0.001 sec  <<< FAILURE!
 java.lang.AssertionError: Not yet implemented
 	at org.junit.Assert.fail(Assert.java:93)
-	at com.leolore.kata.vend.test.KataVendingMachineControllerTest.testSoldOut(KataVendingMachineControllerTest.java:178)
+	at com.leolore.kata.vend.test.KataVendingMachineControllerTest.testSoldOut(KataVendingMachineControllerTest.java:211)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
@@ -185,7 +149,7 @@ java.lang.AssertionError: Not yet implemented
 testExactChangeOnly(com.leolore.kata.vend.test.KataVendingMachineControllerTest)  Time elapsed: 0.001 sec  <<< FAILURE!
 java.lang.AssertionError: Not yet implemented
 	at org.junit.Assert.fail(Assert.java:93)
-	at com.leolore.kata.vend.test.KataVendingMachineControllerTest.testExactChangeOnly(KataVendingMachineControllerTest.java:196)
+	at com.leolore.kata.vend.test.KataVendingMachineControllerTest.testExactChangeOnly(KataVendingMachineControllerTest.java:229)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
@@ -221,7 +185,7 @@ java.lang.AssertionError: Not yet implemented
 testHandleProductSelectionEventWithValidProductClearsHeldMoney(com.leolore.kata.vend.test.KataVendingMachineControllerTest)  Time elapsed: 0.001 sec  <<< FAILURE!
 java.lang.AssertionError: Not yet implemented!
 	at org.junit.Assert.fail(Assert.java:93)
-	at com.leolore.kata.vend.test.KataVendingMachineControllerTest.testHandleProductSelectionEventWithValidProductClearsHeldMoney(KataVendingMachineControllerTest.java:283)
+	at com.leolore.kata.vend.test.KataVendingMachineControllerTest.testHandleProductSelectionEventWithValidProductClearsHeldMoney(KataVendingMachineControllerTest.java:316)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
@@ -257,7 +221,7 @@ java.lang.AssertionError: Not yet implemented!
 testHandleProductSelectionEventWithValidProductReturnsCorrectChange(com.leolore.kata.vend.test.KataVendingMachineControllerTest)  Time elapsed: 0.002 sec  <<< FAILURE!
 java.lang.AssertionError: Not yet implemented!
 	at org.junit.Assert.fail(Assert.java:93)
-	at com.leolore.kata.vend.test.KataVendingMachineControllerTest.testHandleProductSelectionEventWithValidProductReturnsCorrectChange(KataVendingMachineControllerTest.java:288)
+	at com.leolore.kata.vend.test.KataVendingMachineControllerTest.testHandleProductSelectionEventWithValidProductReturnsCorrectChange(KataVendingMachineControllerTest.java:321)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)

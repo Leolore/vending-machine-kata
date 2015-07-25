@@ -1,7 +1,9 @@
 package com.leolore.kata.vend;
 
+import java.util.List;
 import java.util.Map;
 
+import com.leolore.kata.vend.model.CashObject;
 import com.leolore.kata.vend.model.Coin;
 import com.leolore.kata.vend.model.DisplayContents;
 
@@ -44,6 +46,11 @@ public interface IVendingMachineController {
    * @return String the content to be displayed
    */
   public String getDisplayContent();
+  
+  /**
+   * Returns a list of 'coins' that are in the return, mostly for testing.
+   */
+  public List<CashObject> getCoinsInReturn();
   
   /**
    * Called after the event is dequeued and interpreted, this method does the actual work when a product selection key or button has been pressed.

@@ -2,6 +2,7 @@ package com.leolore.kata.vend;
 
 import java.util.Map;
 
+import com.leolore.kata.vend.model.Coin;
 import com.leolore.kata.vend.model.DisplayContents;
 
 /**
@@ -27,15 +28,22 @@ public interface IVendingMachineController {
   
   /**
    * Retrieves the inventory manager for this machine.
-   * @return
+   * @return IInventoryManager
    */
   public IInventoryManager getInventoryManager();
 
+  
+  /**
+   * Retreives the money interpreter for this machine.
+   * @return IMoneyInterpreter
+   */
+  public IMoneyInterpreter getMoneyInterpreter();
+  
   /**
    * Called when the machine is updating the display. This is basically a state machine of the display
    * @return String the content to be displayed
    */
-  public DisplayContents getDisplayContent();
+  public String getDisplayContent();
   
   /**
    * Called after the event is dequeued and interpreted, this method does the actual work when a product selection key or button has been pressed.
@@ -43,5 +51,10 @@ public interface IVendingMachineController {
    * @throws ProductNotDeliveredException
    */
   public void handleProductSelection(String selectionCode) throws ProductNotDeliveredException;
+  
+  /**
+   * Called after the event is dequeued and interpreted, this method does the actual work when a coin is inserted.
+   */
+  public void handleCoinInserted(Coin inserted);
 	
 }

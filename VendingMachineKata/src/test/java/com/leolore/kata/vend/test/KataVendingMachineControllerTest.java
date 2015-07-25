@@ -14,8 +14,10 @@ import com.leolore.kata.vend.IVendingMachineController;
 import com.leolore.kata.vend.InitializationException;
 import com.leolore.kata.vend.ProductNotDeliveredException;
 import com.leolore.kata.vend.controller.KataVendingMachine;
+import com.leolore.kata.vend.model.Coin;
 import com.leolore.kata.vend.model.DisplayContents;
 import com.leolore.kata.vend.model.ProductSlot;
+import com.leolore.kata.vend.model.ProtoCoin;
 
 public class KataVendingMachineControllerTest {
 	private static IVendingMachineController vmac = null;
@@ -222,42 +224,106 @@ Requires change manager, display
 			gotException = true;
 			exceptionMessage = pnde.getMessage();
 		}
-		assertFalse("Got exception from product delivery: " + exceptionMessage, gotException);
+		assertFalse("Got exception from product selection: " + exceptionMessage, gotException);
+	}
+	
+	@Test
+	public void testHandleProductSelectionEventWithInvalidProductCausesException() {
+		/*
+		 * First, we need to actually stock the machine
+		 */
+		stockMachine();
+		
+		/*
+		 *  Here, we would need to create the event, add it to the controller's event queue, wait 
+		 *  for the event to be processed, then do our assertions. This is assuming that the queue processing
+		 *  is happening in a separate thread, and that we have a way of knowing that the event has been
+		 *  processed other than the effects of the functionality that we are actually testing.
+		 *  
+		 *  For the Kata, I am simply going to bypass the whole event queue thing and call the actual handler directly.
+		 */
+		boolean gotException = false;
+		try {
+			vmac.handleProductSelection("Nonexistent");
+		}
+		catch (ProductNotDeliveredException pnde) {
+			gotException = true;
+		}
+		assertTrue("Did not get exception from product selection of bad product", gotException);
 	}
 	
 	@Test
 	public void testHandleProductSelectionEventWithValidProductDecrementsInventoryCount() {
-		/*
-		 * Although we are not implementing this yet, we want to keep track of the fact that it is part of the end functionality that is not done.
-		 */
 		fail("Not yet implemented!");
 	}
 	
 	@Test
 	public void testHandleProductSelectionEventWithValidProductClearsHeldMoney() {
-		/*
-		 * Although we are not implementing this yet, we want to keep track of the fact that it is part of the end functionality that is not done.
-		 */
 		fail("Not yet implemented!");
 	}
 	
 	@Test
 	public void testHandleProductSelectionEventWithValidProductReturnsCorrectChange() {
-		/*
-		 * Although we are not implementing this yet, we want to keep track of the fact that it is part of the end functionality that is not done.
-		 */
 		fail("Not yet implemented!");
 	}
 	
 	@Test
-	public void testGetDefaultDisplayValueIsInsertCoins() {
-		assertEquals(vmac.getDisplayContent(), DisplayContents.INSERT);
+	public void testHandleCoinSlotTriggerRecognizesAcceptedCoins() {
+		Coin nickel = generateCoin("Nickel");
+		Coin dime = generateCoin("Dime");
+		Coin quarter = generateCoin("Quarter");
+		
+		vmac.handleCoinInserted(nickel);
+		assertEquals(vmac.getDisplayContent(), "$0.05");
+		vmac.handleCoinInserted(dime);
+		assertEquals(vmac.getDisplayContent(), "$0.15");
+		vmac.handleCoinInserted(quarter);
+		assertEquals(vmac.getDisplayContent(), "$0.40");
 	}
 	
+	@Test
+	public void testHandleCoinSlotTriggerRejectsUnacceptedCoins() {
+		// Again, full test would be to create the event with the coin object created and queue it,
+		// we are calling the handler directly
+		// reset has already been called in the setup
+		
+		Coin penny = generateCoin("Penny");
+		vmac.handleCoinInserted(penny);
+		assertEquals(vmac.getDisplayContent(), DisplayContents.INSERT.toString());
+		// eventually need to assert that the coin return has the penny in it, when we have a way of getting coins from the return
+	}
+	
+	@Test
+	public void testGetDefaultDisplayValueIsInsertCoins() {
+		assertEquals(vmac.getDisplayContent(), DisplayContents.INSERT.toString());
+	}
+	
+
 	//*************
 	// helpers
 	//
 	
+	private Coin generateCoin(String type) {
+		Coin c = null;
+		if(type.equals("Penny")) {
+			c = new Coin(4.1d, 6.002d, false, null);
+			return c;
+		}
+		if(type.equals("Nickel")) {
+			c = new Coin(5.1d, 7.002d, false, null);
+			return c;
+		}
+		if(type.equals("Dime")) {
+			c = new Coin(1.2d, 5.003d, true, null);
+			return c;
+		}
+		if(type.equals("Quarter")) {
+			c = new Coin(10.3d, 14.005d, true, null);
+			return c;
+		}
+		return null;
+	}
+
 	private void stockMachine() {
 		IInventoryManager inman = vmac.getInventoryManager();
 		
@@ -265,6 +331,7 @@ Requires change manager, display
 		i.put(new ProductSlot("A", "Cola", 1.00d), 8);
 		i.put(new ProductSlot("B", "Chips", 0.50d), 7);
 		i.put(new ProductSlot("C", "Candy", 0.65d), 5);
+		i.put(new ProductSlot("E", "Empty", 0.50d), 0);
 		inman.reStock(i);
 	}
 

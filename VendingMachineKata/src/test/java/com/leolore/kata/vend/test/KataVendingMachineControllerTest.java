@@ -254,7 +254,28 @@ Requires change manager, display
 	
 	@Test
 	public void testHandleProductSelectionEventWithValidProductDecrementsInventoryCount() {
-		fail("Not yet implemented!");
+		/*
+		 * First, we need to actually stock the machine
+		 */
+		stockMachine();
+		
+		/*
+		 *  Here, we would need to create the event, add it to the controller's event queue, wait 
+		 *  for the event to be processed, then do our assertions. This is assuming that the queue processing
+		 *  is happening in a separate thread, and that we have a way of knowing that the event has been
+		 *  processed other than the effects of the functionality that we are actually testing.
+		 *  
+		 *  For the Kata, I am simply going to bypass the whole event queue thing and call the actual handler directly.
+		 */
+		int precount = vmac.getInventoryManager().numberRemaining("A");
+		try {
+			vmac.handleProductSelection("A");
+		}
+		catch (ProductNotDeliveredException pnde) {
+			fail("Got exception from valid product selection");
+		}
+		int postcount = vmac.getInventoryManager().numberRemaining("A");
+		assertEquals("handle product selection did not decrement the inventory count", precount-1, postcount);
 	}
 	
 	@Test
@@ -265,6 +286,29 @@ Requires change manager, display
 	@Test
 	public void testHandleProductSelectionEventWithValidProductReturnsCorrectChange() {
 		fail("Not yet implemented!");
+	}
+	
+	@Test
+	public void testHandleProductSelectionEventWithValidProductUpdatesDisplay() {
+		/*
+		 * First, we need to actually stock the machine
+		 */
+		stockMachine();
+		
+		/*
+		 *  Here, we would need to create the event, add it to the controller's event queue, wait 
+		 *  for the event to be processed, then do our assertions. This is assuming that the queue processing
+		 *  is happening in a separate thread, and that we have a way of knowing that the event has been
+		 *  processed other than the effects of the functionality that we are actually testing.
+		 *  
+		 *  For the Kata, I am simply going to bypass the whole event queue thing and call the actual handler directly.
+		 */
+		try {
+			vmac.handleProductSelection("A");
+		}
+		catch (ProductNotDeliveredException pnde) {
+		}
+		assertEquals("handle product selection did not say thank you", DisplayContents.THANKS.toString(), vmac.getDisplayContent());
 	}
 	
 	@Test

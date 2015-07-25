@@ -87,4 +87,12 @@ public class KataInventoryManagerTest extends KataInventoryManager {
 		assertEquals("Restock did not result in 8 Cola in machine", Integer.valueOf(8), Integer.valueOf(imgr.numberRemaining("A")));
 	}
 
+	@Test
+	public void testDecrementNumberRemainingResultsInDecrementedNumber() {
+		int pre = imgr.numberRemaining("A");
+		int ret = imgr.decrementNumberRemaining("A");
+		int post = imgr.numberRemaining("A");
+		assertEquals("Did not return decremented number", pre-1, ret);
+		assertEquals("Did not update actual inventory count", ret, post);
+	}
 }

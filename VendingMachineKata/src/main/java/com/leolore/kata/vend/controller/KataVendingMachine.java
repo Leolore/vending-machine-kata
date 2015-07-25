@@ -11,6 +11,7 @@ import com.leolore.kata.vend.IMoneyInterpreter;
 import com.leolore.kata.vend.IVendingMachineController;
 import com.leolore.kata.vend.InitializationException;
 import com.leolore.kata.vend.ProductNotDeliveredException;
+import com.leolore.kata.vend.model.CashObject;
 import com.leolore.kata.vend.model.Coin;
 import com.leolore.kata.vend.model.DisplayContents;
 import com.leolore.kata.vend.model.ProductSlot;
@@ -24,6 +25,7 @@ public class KataVendingMachine implements IVendingMachineController {
 	private DisplayContents display = DisplayContents.INSERT;
 	
 	private double heldMoney = 0.0d;
+	private List<Coin> heldCoins = new ArrayList<Coin>();
 	private List<Coin> coinsInReturn = new ArrayList<Coin>();
 	
 	@Override
@@ -79,6 +81,7 @@ public class KataVendingMachine implements IVendingMachineController {
 	@Override
 	public void reset() {
 		heldMoney = 0.0d;
+		heldCoins.clear();
 		coinsInReturn.clear();
 		display = DisplayContents.INSERT;
 	}
@@ -109,8 +112,12 @@ public class KataVendingMachine implements IVendingMachineController {
 		
 		// call delivery method
 		dispenseProduct(sDeliveryCode);
+		inman.decrementNumberRemaining(selectionCode);
 		
-		// update display TODO: not yet implemented
+		// Make change TODO: not yet implemented
+		
+		// update display 
+		display = DisplayContents.THANKS;
 	}
 	
 	@Override
@@ -118,11 +125,13 @@ public class KataVendingMachine implements IVendingMachineController {
 		// detect coin type
 		double val = monint.getValueOf(inserted);
 		if(0.0d == val) {
-			// drop the coin into the return.
+			// TODO: hardware method to drop the coin into the return.
+			coinsInReturn.add(inserted);
 		}
 		else {
 			// if valid, update the money held and the display
 			heldMoney += val;
+			heldCoins.add(inserted);
 			display = DisplayContents.MONEY;
 		}
 	}
@@ -134,10 +143,18 @@ public class KataVendingMachine implements IVendingMachineController {
 	
 	@Override
 	public String getDisplayContent() {
+		String resp = null;
 		if(DisplayContents.MONEY == display) {
 			NumberFormat nf = NumberFormat.getCurrencyInstance();
-			return nf.format(heldMoney);
+			resp = nf.format(heldMoney);
 		}
-		return display.toString();
+		else {
+			resp = display.toString();
+		}
+		if(0.0d < heldMoney) {
+			// Next displayed value should be money amount
+			display = DisplayContents.MONEY;
+		}
+		return resp;
 	}
 }

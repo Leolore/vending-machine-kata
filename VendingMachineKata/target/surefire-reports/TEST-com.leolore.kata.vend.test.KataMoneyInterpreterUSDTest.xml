@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite failures="0" time="0.017" errors="0" skipped="0" tests="5" name="com.leolore.kata.vend.test.KataMoneyInterpreterUSDTest">
+<testsuite failures="0" time="0.013" errors="0" skipped="0" tests="5" name="com.leolore.kata.vend.test.KataMoneyInterpreterUSDTest">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Installs\MyEclipse7\Common\binary\com.sun.java.jdk.win32.x86_64_1.6.0.013\jre\bin"/>
@@ -19,7 +19,7 @@
     <property name="basedir" value="H:\SchmidtHouse\GitHubRepos\vending-machine-kata\VendingMachineKata"/>
     <property name="java.endorsed.dirs" value="C:\Installs\MyEclipse7\Common\binary\com.sun.java.jdk.win32.x86_64_1.6.0.013\jre\lib\endorsed"/>
     <property name="os.arch" value="amd64"/>
-    <property name="surefire.real.class.path" value="H:\SchmidtHouse\GitHubRepos\vending-machine-kata\VendingMachineKata\target\surefire\surefirebooter4271374276399819916.jar"/>
+    <property name="surefire.real.class.path" value="H:\SchmidtHouse\GitHubRepos\vending-machine-kata\VendingMachineKata\target\surefire\surefirebooter1725756204415725066.jar"/>
     <property name="java.io.tmpdir" value="C:\Users\Leolore\AppData\Local\Temp\"/>
     <property name="line.separator" value="
 "/>

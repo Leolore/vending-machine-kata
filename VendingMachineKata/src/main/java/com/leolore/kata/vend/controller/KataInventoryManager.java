@@ -60,4 +60,18 @@ public class KataInventoryManager implements IInventoryManager {
 		}
 		return numLeft.intValue();
 	}
+	
+	@Override
+	public int decrementNumberRemaining(String selectionCode) {
+		if(null == selectionToProduct) {
+			return 0;
+		}
+		Integer numLeft = productCount.get(selectionCode);
+		if(null == numLeft) {
+			return 0;
+		}
+		numLeft = numLeft - 1;
+		productCount.put(selectionCode, new Integer(numLeft));
+		return numLeft.intValue();
+	}
 }

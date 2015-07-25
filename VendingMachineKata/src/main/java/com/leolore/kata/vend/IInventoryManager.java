@@ -14,4 +14,5 @@ public interface IInventoryManager {
 	public void reStock(Map<ProductSlot, Integer> inventory);
 	public ProductSlot getProductForSelectionCode(String code);
 	public int numberRemaining(String selectionCode);
+	public int decrementNumberRemaining(String selectionCode);
 }
